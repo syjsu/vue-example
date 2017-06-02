@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <div class="hello">Hello {{who}}</div>
+
+        <div class="hello">message: {{message}}</div>
+
+        <div class="hello">bind-message: {{bindmessage}}</div>
+
+        <button v-on:click="increment">{{ counter }}</button>
+
+    </div>
+</template>
+
+<script>
+    module.exports = {
+        props: ['message','bindmessage','counter'],
+        data(){
+            return {
+                who: this.message,
+                who2: this.bindmessage
+            }
+        },
+        methods: {
+            increment: function () {
+                //this.counter += 1
+                this.$emit('increment')
+                
+                vm.$emit('setMsg','ni hao 2333')
+            }
+        }
+    }
+</script>
+
+<style>
+    .hello {
+        background-color: #ffe;
+    }
+</style>

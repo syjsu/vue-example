@@ -1,0 +1,29 @@
+<!-- 步骤条的代码 -->
+
+<template>
+    <div>
+        当前{{active}}
+        <el-steps  direction="vertical"  :space="200" :active="active" finish-status="success">
+            <el-step title="步骤 1" description="这是一段很长很长很长的描述性文字"></el-step>
+            <el-step title="步骤 2" description="这是一段很长很长很长的描述性文字"></el-step>
+            <el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
+        </el-steps>
+
+        <el-button @click="next">下一步</el-button>
+    </div>
+</template>
+
+<script>
+    module.exports = {
+        data() {
+            return {
+                active: 0
+            };
+        },
+        methods: {
+            next() {
+                if (this.active++ > 2) this.active = 0;
+            }
+        }
+    }
+</script>

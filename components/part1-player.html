@@ -1,0 +1,51 @@
+<template>
+    <div>
+    <!-- content -->
+        <el-dialog title="预览作品"
+                   size="large"
+                   v-model="show"
+                   >
+            <el-row type="flex" class="row-bg" justify="center" v-loading="loading" element-loading-text="拼命加载中">
+                <el-col :md=12>
+                    <iframe width="480vw" height="400vh" :src="showScratchUrl" id="myiframe" style="background-color:transparent" scrolling="no" frameborder="0"></iframe>
+                </el-col>
+                <el-col :md=12>
+                    <div style="text-align: center;margin-top:35px;width:420px;float: left;">
+                        <div>
+                            <img src="http://i2.muimg.com/588926/f0365b7966393373.png" width="120" />
+                            <p style="color: #424342;font-size:20px;position: relative;top:-20px">微信扫码分享</p>
+                        </div>
+
+                        <div style="clear: both;text-align: left;margin-top: -10px;" class="contentDiv">
+                            <h2>内容介绍</h2>
+                            <p>
+                                广州艾想电子科技有限公司（简称“艾想科技”）是一家专注于6-15岁孩子编程教育的创新型公司，创立“魔法图书馆”儿童教育品牌，在少儿编程教育中率先应用增强现实技术，探索如何使用科技的力量为孩子创造不一样的学习体验！
+                            </p>
+                        </div>
+                    </div>
+                </el-col>
+            </el-row>
+        </el-dialog>
+        <!-- content -->
+    </div>
+</template>
+
+<script>
+    module.exports = {
+        props: ['showScratchUrl','loading','show'],
+        data() {
+            return {
+                default:null
+            };
+        },
+        methods: {
+            default() {
+                
+            }
+        }
+    }
+</script>
+
+<style>
+    
+</style>

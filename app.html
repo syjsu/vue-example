@@ -1,32 +1,46 @@
 <template>
-<div>
-    <h1>测试分页1</h1>
-        <input v-model="bindmessage">
-        <br>
-        <h1>测试分页2</h1>
-        <my-test message="ni hao 2333" v-bind:counter="total" v-on:increment="incrementTotal()" v-bind:bindmessage = "bindmessage"></my-test>
-        <br>
-        <my-step></my-step>
-</div>
+    <div v-loading.fullscreen.lock="fullscreenLoading" element-loading-text="拼命加载中">
+        
+        <my-player :show="false" :loading="false" showScratchUrl=""></my-player>
+
+            <!-- 顶部导航  -->
+            <el-menu theme="blue" class="el-menu-demo" mode="horizontal">
+                <el-menu-item index="1">Scratch项目/作品集/优秀作品</el-menu-item>
+            </el-menu>
+
+            <el-row v-loading="loading" element-loading-text="拼命加载中">
+                <el-col :lg="4" :md="6" :sm="8" :xs="24" v-for="(go, index) in result" :key="go">
+                    <my-box :loading="false" result=""></my-box>
+                </el-col> 
+            </el-row>
+
+            <el-row type="flex" class="row-bg" justify="center">
+                <el-pagination
+                               :page-size="10"
+                               layout="total, prev, pager, next, jumper"
+                               :total="50">
+                </el-pagination>
+            </el-row>
+
+    </div>
 </template>
 
 <script>
 module.exports = {
     data(){
         return {
-            bindmessage: "ni hao 6666",
-            total:0
+           fullscreenLoading:false,
+           loading:false,
+           result:[]
         }
     },
     methods:{
-        incrementTotal: function () {
-            this.total += 1;
-        }
+        
     },
     components: {
-        'my-test':httpVueLoader('components/test.html'),
+        'my-player':httpVueLoader('components/part1-player.html'),
 
-        'my-step':httpVueLoader('components/step.html')
+        'my-box':httpVueLoader('components/part2-box.html')
     }
 }
 

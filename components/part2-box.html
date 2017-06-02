@@ -1,0 +1,39 @@
+<template>
+    <div>
+    <!-- content -->
+         <div style="padding:20px">
+                <el-card :body-style="{ padding: '0px' }">
+
+                    <el-scratch :filename="index"></el-scratch>
+                    <div style="padding: 14px;">
+                        <span  style="width:70%;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis; overflow:hidden;">{{index.replace("scratch-files/","")}}</span>
+                        <div class="bottom clearfix">
+                            <time class="time" v-on:click="">{{ formatDate(go.time) }}</time>
+                            <el-button type="text" class="button" v-on:click='window.open("http://xkids.sinaapp.com/player/list/api.php?project_name="+go.name+"&editor=true");'>编辑</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </div>
+        <!-- content -->
+    </div>
+</template>
+
+<script>
+    module.exports = {
+        props: ['loading','result'],
+        data() {
+            return {
+                default:null
+            };
+        },
+        methods: {
+            default() {
+                
+            }
+        }
+    }
+</script>
+
+<style>
+    
+</style>
